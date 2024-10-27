@@ -15,11 +15,6 @@ export const creepManager = () => {
   for (const name in Game.creeps) {
     const creep = Game.creeps[name];
 
-    // If creep is too close spawn, move away
-    if (creep.pos.inRangeTo(creep.room.find(FIND_MY_SPAWNS)[0], 5)) {
-      creep.move(creep.pos.getDirectionTo(creep.room.controller as StructureController));
-    }
-
     switch (creep.memory.role) {
       case "builder":
         builder(creep);

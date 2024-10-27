@@ -1,37 +1,43 @@
 import { CreepConfig, CreepCount, CreepRole } from "types/creeps";
 
 const maxCreeps: CreepCount = {
-  builder: 5,
+  harvester: 10,
   courier: 10,
-  harvester: 7,
+  builder: 15,
 };
 
 const creepConfigs: CreepConfig = {
   harvester: {
-    body: [WORK, MOVE, CARRY],
+    body: [WORK, WORK, CARRY, MOVE],
     memory: (room: Room): CreepMemory => ({
       role: "harvester",
       room: room,
       working: false,
+      sourceId: undefined,
       targetId: undefined,
+      state: undefined,
     }),
   },
   builder: {
-    body: [WORK, CARRY, MOVE, MOVE],
+    body: [WORK, WORK, CARRY, MOVE],
     memory: (room: Room): CreepMemory => ({
       role: "builder",
       room: room,
       working: false,
+      sourceId: undefined,
       targetId: undefined,
+      state: undefined,
     }),
   },
   courier: {
-    body: [CARRY, CARRY, MOVE],
+    body: [CARRY, CARRY, MOVE, MOVE, MOVE],
     memory: (room: Room): CreepMemory => ({
       role: "courier",
       room: room,
       working: false,
+      sourceId: undefined,
       targetId: undefined,
+      state: undefined,
     }),
   },
 };

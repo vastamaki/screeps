@@ -77,7 +77,7 @@ const findBuildTarget = (creep: Creep): ConstructionSite | null => {
   for (const structureType of priorities) {
     const target = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES, {
       filter: (site) =>
-        site.structureType === structureType && (!builderTargets[site.id] || builderTargets[site.id] < 2),
+        site.structureType === structureType && (!builderTargets[site.id] || builderTargets[site.id] < 5),
     });
     if (target) return target;
   }
